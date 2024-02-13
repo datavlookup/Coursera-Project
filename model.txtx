@@ -1,0 +1,20 @@
+import pandas as pd
+
+# Example DataFrame
+data = {'Column1': ['ABCDE', 'FGHIJ', 'KLMNO'],
+        'Column2': ['PQRST', 'UVWXY', 'ZABCD']}
+
+df = pd.DataFrame(data)
+
+# Separate columns based on a specific number of characters
+df['Column1_Part1'] = df['Column1'].str[:2]
+df['Column1_Part2'] = df['Column1'].str[2:]
+
+df['Column2_Part1'] = df['Column2'].str[:3]
+df['Column2_Part2'] = df['Column2'].str[3:]
+
+# Drop the original columns if you no longer need them
+df.drop(columns=['Column1', 'Column2'], inplace=True)
+
+# Print the DataFrame with the separated columns
+print(df)
